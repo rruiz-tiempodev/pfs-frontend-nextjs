@@ -1,18 +1,18 @@
 import {formatAmount} from "@/app/util/utils";
 import {getCurrencyExchange, getFixedExpenses, getIncomes} from "@/app/util/data";
-import {IncomeExpense} from "@/app/lib/definitions";
-import { DataGrid } from '@mui/x-data-grid';
+import {IncomeExpense, IncomeExpenseEnum} from "@/app/lib/definitions";
+import {DataGrid, GridRowsProp} from '@mui/x-data-grid';
 
 const ExpenseIncomeTable = async ({title, type}: {
     title: "";
-    type: IncomeExpense;
+    type: IncomeExpenseEnum;
 }) => {
 
     const exchange = await getCurrencyExchange();
-    const data = type.type == 'income' ? await getIncomes() : await getFixedExpenses();
+    const data:IncomeExpense[] = type == IncomeExpenseEnum.INCOME ? await getIncomes() : await getFixedExpenses();
 
-    const formattedData = data.map(item => {
-        const newItem = {...item}
+    const formattedData:GridRowsProp<IncomeExpense> = data.map(item => {
+        const newItem:IncomeExpense = {...item}
         newItem.AmountInMX = formatAmount(item.amount, item.currency, 'MXP', exchange);
         newItem.AmountInUSD = formatAmount(item.amount, item.currency, 'USD', exchange);
         return newItem;

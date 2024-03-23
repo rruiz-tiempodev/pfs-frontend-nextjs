@@ -98,25 +98,43 @@ export default function MainNavigation() {
                             <Divider sx={{mb: 2}} />
 
                             <Box sx={{mb: 2}}>
+                                <Link href={'/dashboard'} onClick={toggleDrawer(false)} passHref>
+                                    <ListItemButton component="a">
+                                        <ListItemIcon>
+                                            <DescriptionIcon sx={{color: "primary.main"}}/>
+                                        </ListItemIcon >
+                                        <ListItemText primary="Home" />
+                                    </ListItemButton>
+                                </Link>
 
-                                <ListItemButton>
-                                    <Link href={'/dashboard/expenses'}
-                                          name key={"Expenses"} onClick={toggleDrawer(false)}>Expenses</Link>
-                                </ListItemButton>
+                                <Link href={'/dashboard/incomes'} onClick={toggleDrawer(false)} passHref>
+                                    <ListItemButton component="a">
+                                        <ListItemIcon>
+                                            <DescriptionIcon sx={{color: "primary.main"}}/>
+                                        </ListItemIcon >
+                                        <ListItemText primary="Incomes" />
+                                    </ListItemButton>
+                                </Link>
 
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <DescriptionIcon sx={{color: "primary.main"}}/>
-                                    </ListItemIcon >
-                                    <ListItemText primary="Documents" />
-                                </ListItemButton>
+                                <Link href={'/dashboard/expenses'} onClick={toggleDrawer(false)} passHref>
+                                    <ListItemButton component="a">
+                                        <ListItemIcon>
+                                            <DescriptionIcon sx={{color: "primary.main"}}/>
+                                        </ListItemIcon >
+                                        <ListItemText primary="Fixed Expenses" />
+                                    </ListItemButton>
+                                </Link>
 
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <FolderIcon sx={{color: "primary.main"}} />
-                                    </ListItemIcon>
-                                    <ListItemText primary="Other" />
-                                </ListItemButton>
+                                <Link href={'/dashboard/budget'} onClick={toggleDrawer(false)} passHref>
+                                    <ListItemButton component="a">
+                                        <ListItemIcon>
+                                            <DescriptionIcon sx={{color: "primary.main"}}/>
+                                        </ListItemIcon >
+                                        <ListItemText primary="Budget" />
+                                    </ListItemButton>
+                                </Link>
+
+
                             </Box>
 
                             <Box sx={{

@@ -1,6 +1,7 @@
+import {BudgetTypeEnum} from "@/app/lib/definitions";
 
 export const getFixedExpenses = async () => {
-    const data = await fetch('http://localhost:8080/api/fixed-expense');
+    const data = await fetch('http://localhost:8080/api/fixed-expense', { cache: 'no-store' });
     return await data.json();
 }
 
@@ -9,8 +10,8 @@ export const getIncomes = async () => {
     return await data.json();
 }
 
-export const getBudget = async (type) => {
-    const data = await fetch('http://localhost:8080/api/budget/by-month?year=2024&month=03&zone=CST&type=' + type);
+export const getBudget = async (type:BudgetTypeEnum) => {
+    const data = await fetch('http://localhost:8080/api/budget/by-month?year=2024&month=03&zone=CST&type=' + type.toString(), { cache: 'no-store' });
     return await data.json();
 }
 
