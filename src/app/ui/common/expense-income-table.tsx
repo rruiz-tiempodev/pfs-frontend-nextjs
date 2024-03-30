@@ -13,8 +13,8 @@ const ExpenseIncomeTable = async ({title, type}: {
 
     const formattedData:GridRowsProp<IncomeExpense> = data.map(item => {
         const newItem:IncomeExpense = {...item}
-        newItem.AmountInMX = formatAmount(item.amount, item.currency, 'MXP', exchange);
-        newItem.AmountInUSD = formatAmount(item.amount, item.currency, 'USD', exchange);
+        newItem.amountInMX = formatAmount(item.amount, item.currency, 'MXP', exchange);
+        newItem.amountInUSD = formatAmount(item.amount, item.currency, 'USD', exchange);
         return newItem;
     })
 

@@ -16,8 +16,8 @@ export type IncomeExpense = {
     expenseType: IncomeExpenseEnum,
     description: String,
     currency:CurrencyEnum,
-    AmountInMX: number,
-    AmountInUSD: number
+    amountInMX: number,
+    amountInUSD: number
 }
 
 export type Budget = {
